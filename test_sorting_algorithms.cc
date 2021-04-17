@@ -28,24 +28,36 @@ void TestingTiming() {
 }
 
 // Generates and returns random vector of size @size_of_vector.
-vector<int> GenerateRandomVector(size_t size_of_vector) {
+vector<int> GenerateRandomVector(size_t size_of_vector) 
+{
   // Use rand() to generate random integer
-  // Add code
-
+  vector<int> a{};
+// Creates a random seed
+  srand(time(NULL));
+  // Scans through vector a
+  for (int i = 0; i < size_of_vector; i++)
+  {
+    // Inserts a random number
+    a.push_back(rand());
+  }
+  return a;
 }
 
 // Generate and returns sorted vector of size @size_of_vector
 // If smaller_to_larger is true, returns vector sorted from small to large
 // Otherwise returns vector sorted from large to small
 vector<int> GenerateSortedVector(size_t size_of_vector, bool smaller_to_larger) {
-  // Add code
+  // ADD CODE
 }
 
 // Verifies that a vector is sorted given a comparator
 template <typename Comparable, typename Comparator>
 bool VerifyOrder(const vector<Comparable> &input, Comparator less_than) {
   // Add code
+  for (int i = 0; i < input.size(); i++)
+  {
 
+  }
 }
 
 // Computes duration given a start time and a stop time in nano seconds
