@@ -140,6 +140,8 @@ bool VerifyOrder(const vector<Comparable> &input, Comparator less_than)
 
 // Computes duration given a start time and a stop time in nano seconds
 long long ComputeDuration(chrono::high_resolution_clock::time_point start_time, chrono::high_resolution_clock::time_point end_time) {
+  const auto begin = chrono::high_resolution_clock::now();
+  const auto end = chrono::high_resolution_clock::now();  
   // returns the duration in ns
   return chrono::duration_cast<chrono::nanoseconds>(end - begin).count();
 }
