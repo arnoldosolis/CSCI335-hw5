@@ -171,10 +171,24 @@ int testSortingWrapper(int argc, char **argv) {
   vector<int> input_vector;
   if (input_type == "random") {
     // Generate random vector
+    input_vector = GenerateRandomVector(input_size);
     
-  } else {
+  } 
+  else 
+  {
     // Generate sorted vector.
-
+    // smallest to largest
+    if (input_type == "sorted_small_to_large")
+    {
+      // copyies returned array into input_vector
+      input_vector = GenerateSortedVector(input_size, true);
+    }
+    // largest to smallest
+    else
+    {
+      // copyies returned array into input_vector
+      input_vector = GenerateSortedVector(input_size, false);
+    }
   }
 
   // Call quicksort / heapsort / mergesort using appropriate input.
@@ -192,7 +206,7 @@ int testSortingWrapper(int argc, char **argv) {
   // otherwise call
   // QuickSort(input_vector, greater<int>{})
   // ...
-
+  return 0;
 }
 
 // Do not change anything below
