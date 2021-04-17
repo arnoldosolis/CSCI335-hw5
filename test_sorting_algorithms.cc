@@ -32,7 +32,7 @@ vector<int> GenerateRandomVector(size_t size_of_vector)
 {
   // Use rand() to generate random integer
   vector<int> a{};
-// Creates a random seed
+  // Creates a random seed
   srand(time(NULL));
   // Scans through vector a
   for (int i = 0; i < size_of_vector; i++)
@@ -52,11 +52,40 @@ vector<int> GenerateSortedVector(size_t size_of_vector, bool smaller_to_larger) 
 
 // Verifies that a vector is sorted given a comparator
 template <typename Comparable, typename Comparator>
-bool VerifyOrder(const vector<Comparable> &input, Comparator less_than) {
-  // Add code
-  for (int i = 0; i < input.size(); i++)
+bool VerifyOrder(const vector<Comparable> &input, Comparator less_than) 
+{
+  bool verified = false;
+  if (less_than == less<int>{})
   {
-
+    for (int i = 0; i < input.size() - 1; i++)
+    {
+      //less -> 1, 2, 3, 4, 5
+      if (input[i] < input[i+1])
+      {
+        verified = true;
+      }
+      else
+      {
+        verified = false;
+      }
+    }
+    return verified;
+  }
+  else if(less_than == greater<int>{})
+  {
+    for (int i = 0; i < input.size() - 1; i++)
+    {
+      // greater -> 5, 4, 3, 2, 1
+      if (input[i] > input[i+1])
+      {
+        verified = true;
+      }
+      else
+      {
+        verified = false;
+      }
+    }
+    return verified;
   }
 }
 

@@ -1,5 +1,5 @@
 // Code from Mark Allen Weiss textbook
-// Modified by: YOUR NAME
+// Modified by: Arnoldo Solis
 
 #ifndef SORT_H
 #define SORT_H
