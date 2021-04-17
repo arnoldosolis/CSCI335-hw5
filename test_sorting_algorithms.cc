@@ -1,6 +1,6 @@
 // Homework 5
 // Testing Sorting Algorithms
-// YOUR NAME
+// Arnoldo Solis
 
 #include "Sort.h"
 #include <chrono>
