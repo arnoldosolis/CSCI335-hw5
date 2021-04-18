@@ -129,28 +129,28 @@ void percDown( vector<Comparable> & a, Comparator less_than, int i, int n )
  * left is the left-most index of the subarray.
  * right is the right-most index of the subarray.
  */
-template <typename Comparable>
+template <typename Comparable, typename Comparator>
 void mergeSort( vector<Comparable> & a,
                 vector<Comparable> & tmpArray, int left, int right )
 {
     if( left < right )
     {
         int center = ( left + right ) / 2;
-        mergeSort( a, tmpArray, left, center );
-        mergeSort( a, tmpArray, center + 1, right );
-        merge( a, tmpArray, left, center + 1, right );
+        mergeSort( a, tmpArray, less_than, left, center );
+        mergeSort( a, tmpArray, less_than, center + 1, right );
+        merge( a, tmpArray, less_than, left, center + 1, right );
     }
 }
 
 /**
  * Mergesort algorithm (driver).
  */
-template <typename Comparable>
-void mergeSort( vector<Comparable> & a )
+template <typename Comparable, typename Comparator>
+void mergeSort( vector<Comparable> & a, Comparator less_than )
 {
     vector<Comparable> tmpArray( a.size( ) );
 
-    mergeSort( a, tmpArray, 0, a.size( ) - 1 );
+    mergeSort( a, tmpArray, less_than, 0, a.size( ) - 1 );
 }
 
 
@@ -172,7 +172,7 @@ void merge( vector<Comparable> & a, vector<Comparable> & tmpArray, Comparable le
 
     // Main loop
     while( leftPos <= leftEnd && rightPos <= rightEnd )
-        if( a[ leftPos ] <= a[ rightPos ] )
+        if( less_than(a[ leftPos ] <= a[ rightPos ]) )
             tmpArray[ tmpPos++ ] = std::move( a[ leftPos++ ] );
         else
             tmpArray[ tmpPos++ ] = std::move( a[ rightPos++ ] );
