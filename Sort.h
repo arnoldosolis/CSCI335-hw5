@@ -250,6 +250,102 @@ void quicksort( vector<Comparable> & a, Comparator less_than )
     quicksort( a, less_than, 0, a.size( ) - 1 );
 }
 
+/**
+ * Return middle
+ */
+template <typename Comparable>
+const Comparable & middle(vector<Comparable> & a, Comparable left, Comparable right)
+{
+    // Returns mid point
+    return a[(left + right) / 2];
+}
+
+/**
+ * Internal quicksort method that makes recursive calls.
+ * Uses median-of-three partitioning and a cutoff of 10.
+ * a is an array of Comparable items.
+ * left is the left-most index of the subarray.
+ * right is the right-most index of the subarray.
+ */
+template <typename Comparable, typename Comparator>
+void quicksort2 ( vector<Comparable> & a, Comparator less_than, int left, int right )
+{
+    if( left + 10 <= right )
+    {
+        const Comparable & pivot = middle( a, left, right );
+
+            // Begin partitioning
+        int i = left, j = right - 1;
+        for( ; ; )
+        {
+            while( less_than(a[ ++i ], pivot) ) { }
+            while( less_than(pivot, a[ --j ]) ) { }
+            if( i < j )
+                std::swap( a[ i ], a[ j ] );
+            else
+                break;
+        }
+
+        std::swap( a[ i ], a[ right - 1 ] );  // Restore pivot
+
+        quicksort2( a, less_than, left, i - 1 );     // Sort small elements
+        quicksort2( a, less_than, i + 1, right );    // Sort large elements
+    }
+    else  // Do an insertion sort on the subarray
+        insertionSort( a, less_than, left, right );
+}
+
+/**
+ * Quicksort2 algorithm (driver).
+ */
+template <typename Comparable, typename Comparator>
+void quicksort2 (vector<Comparable> & a, Comparator less_than)
+{
+    quicksort2( a, less_than, 0, a.size( ) - 1 );
+}
+
+template <typename Comparable>
+const Comparable & first(vector<Comparable> & a, Comparable left)
+{
+    return a[left];
+}
+
+template <typename Comparable, typename Comparator>
+void quicksort3 ( vector<Comparable> & a, Comparator less_than, int left, int right )
+{
+    if( left + 10 <= right )
+    {
+        const Comparable & pivot = first( a, left );
+
+            // Begin partitioning
+        int i = left, j = right - 1;
+        for( ; ; )
+        {
+            while( less_than(a[ ++i ], pivot) ) { }
+            while( less_than(pivot, a[ --j ]) ) { }
+            if( i < j )
+                std::swap( a[ i ], a[ j ] );
+            else
+                break;
+        }
+
+        std::swap( a[ i ], a[ right - 1 ] );  // Restore pivot
+
+        quicksort3( a, less_than, left, i - 1 );     // Sort small elements
+        quicksort3( a, less_than, i + 1, right );    // Sort large elements
+    }
+    else  // Do an insertion sort on the subarray
+        insertionSort( a, less_than, left, right );
+}
+
+/**
+ * Quicksort2 algorithm (driver).
+ */
+template <typename Comparable, typename Comparator>
+void quicksort3 (vector<Comparable> & a, Comparator less_than)
+{
+    quicksort3( a, less_than, 0, a.size( ) - 1 );
+}
 
 /**
  * Internal selection method that makes recursive calls.

@@ -211,7 +211,7 @@ int testSortingWrapper(int argc, char **argv) {
     std::cout << "Middle" << std::endl;
     std::cout << std::endl;
     begin = chrono::high_resolution_clock::now();
-    quicksort(input_vector, less<int>{});
+    quicksort2(input_vector, less<int>{});
     end = chrono::high_resolution_clock::now();
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
     std::cout << "Verified: " << VerifyOrder(input_vector, less<int>{}) << std::endl;
@@ -221,7 +221,7 @@ int testSortingWrapper(int argc, char **argv) {
     std::cout << "First" << std::endl;
     std::cout << std::endl;
     begin = chrono::high_resolution_clock::now();
-    quicksort(input_vector, less<int>{});
+    quicksort3(input_vector, less<int>{});
     end = chrono::high_resolution_clock::now();
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
     std::cout << "Verified: " << VerifyOrder(input_vector, less<int>{}) << std::endl;
@@ -282,7 +282,7 @@ int testSortingWrapper(int argc, char **argv) {
     std::cout << "Middle" << std::endl;
     std::cout << std::endl;
     begin = chrono::high_resolution_clock::now();
-    quicksort(input_vector, greater<int>{});
+    quicksort2(input_vector, greater<int>{});
     end = chrono::high_resolution_clock::now();
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
     std::cout << "Verified: " << VerifyOrder(input_vector, greater<int>{}) << std::endl;
@@ -292,7 +292,7 @@ int testSortingWrapper(int argc, char **argv) {
     std::cout << "First" << std::endl;
     std::cout << std::endl;
     begin = chrono::high_resolution_clock::now();
-    quicksort(input_vector, greater<int>{});
+    quicksort3(input_vector, greater<int>{});
     end = chrono::high_resolution_clock::now();
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
     std::cout << "Verified: " << VerifyOrder(input_vector, greater<int>{}) << std::endl;
