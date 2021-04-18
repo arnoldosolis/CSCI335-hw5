@@ -49,13 +49,11 @@ vector<int> GenerateSortedVector(size_t size_of_vector, bool smaller_to_larger)
 {
   // Creates vector a
   vector<int> a{};
-  srand(time(NULL));
   // Scans through vector
   for (size_t i = 0; i < size_of_vector; i++)
   {
-    // Inserts num
+    // Inserts random
     a.push_back(rand());
-    // Will increase num to order from smallest to largest
   }
   // If the values are going to be from smallest to largest
   if (smaller_to_larger == true)
@@ -122,9 +120,9 @@ int testSortingWrapper(int argc, char **argv) {
     return 0;
   }
   
-  // This block of code to be removed for your final submission.
-  TestingTiming();
-  std::cout << "Running sorting algorithms: " << input_type << " " << input_size << " numbers " << comparison_type << std::endl;
+  std::cout << "Running sorting algorithms: " << input_type << " " << input_size << " " << comparison_type << std::endl;
+
+  std::cout << std::endl;
   
   vector<int> input_vector;
   if (input_type == "random") {
@@ -194,7 +192,7 @@ int testSortingWrapper(int argc, char **argv) {
 
     std::cout << std::endl;
 
-    std::cout << "Testing Quicksort Pivot Implmenetations" << std::endl;
+    std::cout << "Testing Quicksort Pivot Implementations" << std::endl;
 
     std::cout << std::endl;
 
@@ -265,7 +263,7 @@ int testSortingWrapper(int argc, char **argv) {
 
     std::cout << std::endl;
 
-    std::cout << "Testing Quicksort Pivot Implmenetations" << std::endl;
+    std::cout << "Testing Quicksort Pivot Implementations" << std::endl;
 
     std::cout << std::endl;
 
