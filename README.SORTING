@@ -1,0 +1,58 @@
+I.  All Parts Completed
+II. Bugs and Development
+    Question 1:
+        Step 1:
+            For the first function I was confused on how to use the comparator
+            in terms of syntax. So, I searched for some documentation and found some
+            examples but I was still confused on how it took in the parameter less<int>
+            and greater<int> so I went to the c++ documentation website and read up on
+            these functions. TLDR: They are objects of the comparator class can be used 
+            with algorithms such as merge.
+            
+            For the second function in this step it was straight forward. All I did was
+            use srand to generate a seed and my rand used that seed to generate random
+            numbers. Then I just pushed back these random numbers into the array.
+            
+            For the second function (cb)
+
+            The last function in this step I was lost but I used the TestTimeing 
+            function as a guideline. It was my first time using this library from c++ so I 
+            did look up documentation on it.
+        Step 2:
+            In this step all I had to do was add the paramater that would determine how the 
+            array would be sorted depending on what the users input for comparison_type was.
+
+            Now though I did make it sound simple and easy it was not. It took a bit of trial
+            error but that was only for the first one. I sort of "re-realized" that becuase I 
+            had to add less_than to my function that it would only make sense to implement it 
+            whenever there was a comparison happening. The hint was greatly appreciated as it
+            eliminated any doubt about whether or not I had to modify the helpers and wrappers.
+
+            BUG: I'm not sure if this was intended for the me, the student, to "figure out" but 
+            there were call errors where basically I was calling a function that didnt exist.
+            This was happening because the driver function would call the helper function before 
+            the compiler even read it. So I had 2 options: rearange the functions or write their 
+            prototypes at the top of the file. I went with the first solution and just rearanged
+            the code.
+        Step 3:
+            All implementation for the most part was done for this part of the assignment. What 
+            I had to do now was add output. I referenced the pdf for the first part of the output 
+            which consisted of outputting the type of array, the size, and its comparison_type 
+
+            Then came each individual sort HeapSort, MergeSort, and QuickSort. Below each of these 
+            would be their runtime in nanoseconds as well as their verification status. The verification 
+            status was just to see if they were sorted in the user specified order. 
+    Question 2:
+            This part of the assignment was fun in that it didnt require a lot of thought. All I had to do 
+            was copy the way the other quicksorts were designed and change their pivot. So all I did was reuse
+            the code that was already their for the median of three quicksort. The only thing I change was
+            the comparable functions and made it so that they returned the appropriate pivot for their given
+            quicksorts.
+
+II. Complete instructions of how to run your program(s)
+
+Source:
+Mark Allen Weiss C++ Textbook
+https://www.cplusplus.com/reference/functional/less/
+https://www.cplusplus.com/reference/functional/greater/
+https://www.cplusplus.com/reference/chrono/
