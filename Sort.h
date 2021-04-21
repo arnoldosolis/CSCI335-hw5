@@ -250,9 +250,9 @@ void quicksort( vector<Comparable> & a, Comparator less_than )
     quicksort( a, less_than, 0, a.size( ) - 1 );
 }
 
-/**
- * Return middle
- */
+/*
+ * Return mid point of array to use as pivot 
+*/
 template <typename Comparable>
 const Comparable & middle(vector<Comparable> & a, Comparable left, Comparable right)
 {
@@ -261,8 +261,8 @@ const Comparable & middle(vector<Comparable> & a, Comparable left, Comparable ri
 }
 
 /**
- * Internal quicksort method that makes recursive calls.
- * Uses median-of-three partitioning and a cutoff of 10.
+ * Internal quicksort2 method that makes recursive calls.
+ * Uses middle partitioning.
  * a is an array of Comparable items.
  * left is the left-most index of the subarray.
  * right is the right-most index of the subarray.
@@ -304,12 +304,21 @@ void quicksort2 (vector<Comparable> & a, Comparator less_than)
     quicksort2( a, less_than, 0, a.size( ) - 1 );
 }
 
+/*
+*   returns the first index of array to use as pivot 
+*/ 
 template <typename Comparable>
 const Comparable & first(vector<Comparable> & a, Comparable left)
 {
     return a[left];
 }
 
+/**
+ * Internal quicksort3 method that makes recursive calls.
+ * Uses first index.
+ * a is an array of Comparable items.
+ * left is the left-most index of the subarray.
+ */
 template <typename Comparable, typename Comparator>
 void quicksort3 ( vector<Comparable> & a, Comparator less_than, int left, int right )
 {
@@ -339,7 +348,7 @@ void quicksort3 ( vector<Comparable> & a, Comparator less_than, int left, int ri
 }
 
 /**
- * Quicksort2 algorithm (driver).
+ * Quicksort3 algorithm (driver).
  */
 template <typename Comparable, typename Comparator>
 void quicksort3 (vector<Comparable> & a, Comparator less_than)
