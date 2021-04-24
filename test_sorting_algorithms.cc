@@ -95,6 +95,7 @@ bool VerifyOrder(const vector<Comparable> &input, Comparator less_than)
     {
       // Set bollean flag to false  
       verified = false;
+      return verified;
     }
   }
   // Returns boolean value depending on if the array is in order 
@@ -154,6 +155,14 @@ int testSortingWrapper(int argc, char **argv) {
     }
   }
 
+  // Created 6 duplicate input_vector so that there can be a more precise
+  // measurement in runtime
+  vector<int> a = input_vector;
+  vector<int> b = input_vector;
+  vector<int> c = input_vector;
+  vector<int> d = input_vector;
+  vector<int> e = input_vector;
+  vector<int> f = input_vector;
   // Call quicksort / heapsort / mergesort using appropriate input.
   // ...
   // if comparison type is "less" then call
@@ -166,12 +175,12 @@ int testSortingWrapper(int argc, char **argv) {
     // start timer
     auto begin = chrono::high_resolution_clock::now();
     // Heapsort
-    heapsort(input_vector, less<int>{});
+    heapsort(a, less<int>{});
     //end timer
     auto end = chrono::high_resolution_clock::now();
     // Calls Compute Duration to print out Runtime
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
-    std::cout << "Verified: " << VerifyOrder(input_vector, less<int>{}) << std::endl;
+    std::cout << "Verified: " << VerifyOrder(a, less<int>{}) << std::endl;
     // MergeSort(input_vector, less<int>{})
     // otherwise call
     // MergeSort(input_vector, greater<int>{})
@@ -186,13 +195,13 @@ int testSortingWrapper(int argc, char **argv) {
     // start timer 
     begin = chrono::high_resolution_clock::now();
     // MergeSort
-    mergeSort(input_vector, less<int>{});
+    mergeSort(b, less<int>{});
     // end timer 
     end = chrono::high_resolution_clock::now();
     // Calls ComputeDuration function to return time counted by timer 
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
     // Checks if array is in order 
-    std::cout << "Verified: " << VerifyOrder(input_vector, less<int>{}) << std::endl;
+    std::cout << "Verified: " << VerifyOrder(b, less<int>{}) << std::endl;
 
     // new line 
     std::cout << std::endl;
@@ -204,13 +213,13 @@ int testSortingWrapper(int argc, char **argv) {
     // start timer 
     begin = chrono::high_resolution_clock::now();
     // quicksort (specifically median3)
-    quicksort(input_vector, less<int>{});
+    quicksort(c, less<int>{});
     // end timer 
     end = chrono::high_resolution_clock::now();
     // Calls ComputeDuration function to return time counted by timer 
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
     // Checks if array is in order
-    std::cout << "Verified: " << VerifyOrder(input_vector, less<int>{}) << std::endl;
+    std::cout << "Verified: " << VerifyOrder(c, less<int>{}) << std::endl;
 
     // new line 
     std::cout << std::endl;
@@ -228,13 +237,13 @@ int testSortingWrapper(int argc, char **argv) {
     // start timer  
     begin = chrono::high_resolution_clock::now();
     // quicksort 
-    quicksort(input_vector, less<int>{});
+    quicksort(d, less<int>{});
     // end timer 
     end = chrono::high_resolution_clock::now();
     // Calls ComputeDuration function to return time counter by timer 
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
     // Checks if array is in order 
-    std::cout << "Verified: " << VerifyOrder(input_vector, less<int>{}) << std::endl;
+    std::cout << "Verified: " << VerifyOrder(d, less<int>{}) << std::endl;
 
     // new line 
     std::cout << std::endl;
@@ -246,13 +255,13 @@ int testSortingWrapper(int argc, char **argv) {
     // start timer 
     begin = chrono::high_resolution_clock::now();
     // quicksort middle pivot
-    quicksort2(input_vector, less<int>{});
+    quicksort2(e, less<int>{});
     // end timer 
     end = chrono::high_resolution_clock::now();
     // Calls ComputeDuration function to return time counter by timer 
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
     // checks if array is in order 
-    std::cout << "Verified: " << VerifyOrder(input_vector, less<int>{}) << std::endl;
+    std::cout << "Verified: " << VerifyOrder(e, less<int>{}) << std::endl;
 
     // new line 
     std::cout << std::endl;
@@ -264,13 +273,13 @@ int testSortingWrapper(int argc, char **argv) {
     // start timer 
     begin = chrono::high_resolution_clock::now();
     // quicksort first index pivot 
-    quicksort3(input_vector, less<int>{});
+    quicksort3(f, less<int>{});
     // end timer 
     end = chrono::high_resolution_clock::now();
     // Calls ComputeDuration function to return time counter by timer 
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
     // checks if array is in order 
-    std::cout << "Verified: " << VerifyOrder(input_vector, less<int>{}) << std::endl;
+    std::cout << "Verified: " << VerifyOrder(f, less<int>{}) << std::endl;
   }
   // Please reference above comments as they are the same for greater the 
   // only thing that changes is comparison_type that being the "greater".
@@ -284,32 +293,32 @@ int testSortingWrapper(int argc, char **argv) {
     // start timer
     auto begin = chrono::high_resolution_clock::now();
     // Heapsort
-    heapsort(input_vector, greater<int>{});
+    heapsort(a, greater<int>{});
     //end timer
     auto end = chrono::high_resolution_clock::now();
     // Calls Compute Duration to print out Runtime
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
-    std::cout << "Verified: " << VerifyOrder(input_vector, greater<int>{}) << std::endl;
+    std::cout << "Verified: " << VerifyOrder(a, greater<int>{}) << std::endl;
     
     std::cout << std::endl;
 
     std::cout << "MergeSort" << std::endl;
     std::cout << std::endl;
     begin = chrono::high_resolution_clock::now();
-    mergeSort(input_vector, greater<int>{});
+    mergeSort(b, greater<int>{});
     end = chrono::high_resolution_clock::now();
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
-    std::cout << "Verified: " << VerifyOrder(input_vector, greater<int>{}) << std::endl;
+    std::cout << "Verified: " << VerifyOrder(b, greater<int>{}) << std::endl;
 
     std::cout << std::endl;
 
     std::cout << "QuickSort" << std::endl;
     std::cout << std::endl;
     begin = chrono::high_resolution_clock::now();
-    quicksort(input_vector, greater<int>{});
+    quicksort(c, greater<int>{});
     end = chrono::high_resolution_clock::now();
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
-    std::cout << "Verified: " << VerifyOrder(input_vector, greater<int>{}) << std::endl;
+    std::cout << "Verified: " << VerifyOrder(c, greater<int>{}) << std::endl;
 
     std::cout << std::endl;
 
@@ -320,30 +329,30 @@ int testSortingWrapper(int argc, char **argv) {
     std::cout << "Median of Three" << std::endl;
     std::cout << std::endl;
     begin = chrono::high_resolution_clock::now();
-    quicksort(input_vector, greater<int>{});
+    quicksort(d, greater<int>{});
     end = chrono::high_resolution_clock::now();
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
-    std::cout << "Verified: " << VerifyOrder(input_vector, greater<int>{}) << std::endl;
+    std::cout << "Verified: " << VerifyOrder(d, greater<int>{}) << std::endl;
 
     std::cout << std::endl;
 
     std::cout << "Middle" << std::endl;
     std::cout << std::endl;
     begin = chrono::high_resolution_clock::now();
-    quicksort2(input_vector, greater<int>{});
+    quicksort2(e, greater<int>{});
     end = chrono::high_resolution_clock::now();
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
-    std::cout << "Verified: " << VerifyOrder(input_vector, greater<int>{}) << std::endl;
+    std::cout << "Verified: " << VerifyOrder(e, greater<int>{}) << std::endl;
 
     std::cout << std::endl;
 
     std::cout << "First" << std::endl;
     std::cout << std::endl;
     begin = chrono::high_resolution_clock::now();
-    quicksort3(input_vector, greater<int>{});
+    quicksort3(f, greater<int>{});
     end = chrono::high_resolution_clock::now();
     std::cout << "Runtime: " << "<" << ComputeDuration(begin, end) << ">" << " ns" << std::endl;
-    std::cout << "Verified: " << VerifyOrder(input_vector, greater<int>{}) << std::endl;
+    std::cout << "Verified: " << VerifyOrder(f, greater<int>{}) << std::endl;
   }
   return 0;
 }

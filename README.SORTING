@@ -13,7 +13,12 @@ II. Bugs and Development
             use srand to generate a seed and my rand used that seed to generate random
             numbers. Then I just pushed back these random numbers into the array.
             
-            For the second function (cb)
+            For the second function I did email a TA to ask what kind of random sorted
+            array I was suppose to make. I was not sure if I was suppose to make a randomly
+            generated array or an array that counts from 1 to 5 like 1,2,3,4,5, as an example.
+            I was told that it actually does not matter and that I could chose either route as
+            long as I was generating a sorted array. I used the quicksort algorithm that I
+            modified to make it easier.
 
             The last function in this step I was lost but I used the TestTimeing 
             function as a guideline. It was my first time using this library from c++ so I 
@@ -49,10 +54,21 @@ II. Bugs and Development
             the comparable functions and made it so that they returned the appropriate pivot for their given
             quicksorts.
 
+            With all of the above being said for some reason it does not verify that my quicksort works. It
+            returns 0 even though to my understanding to get midpoint you you add the left and right then divide
+            by 2. Then for first pivot you get the first index. I'm just tired so I will wait for in class solution.
+
 II. Complete instructions of how to run your program(s)
+    To compile just type in: 
+                                g++ -o test_sorting_algorithms test_sorting_algorithms.cc
+    To run:
+                                ./test_sorting_algorithms random 20000 less
+                                where random is the kind of array and the 20000 is the size and less is the 
+                                comparison type.
 
 Source:
 Mark Allen Weiss C++ Textbook
 https://www.cplusplus.com/reference/functional/less/
 https://www.cplusplus.com/reference/functional/greater/
 https://www.cplusplus.com/reference/chrono/
+https://www.fluentcpp.com/2019/10/29/stdless-and-its-modern-evolution/
