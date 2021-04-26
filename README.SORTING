@@ -60,7 +60,7 @@ II. Bugs and Development
 
 II. Complete instructions of how to run your program(s)
     To compile just type in: 
-                                g++ -o test_sorting_algorithms test_sorting_algorithms.cc
+                                g++ -std=c++11 test_sorting_algorithms.cc -o test_sorting_algorithms.cc
     To run:
                                 ./test_sorting_algorithms random 20000 less
                                 where random is the kind of array and the 20000 is the size and less is the 
